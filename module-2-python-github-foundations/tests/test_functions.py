@@ -15,6 +15,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "starter"))
 
 import pytest
 from functions import (
+    average_moisture,
     load_harvest_data,
     yield_per_dunam,
     estimate_oil_liters,
@@ -23,6 +24,18 @@ from functions import (
 )
 
 DATA_PATH = os.path.join(os.path.dirname(__file__), "..", "data", "harvest_data.csv")
+
+
+def test_worked_example_average_moisture():
+    # This test should already pass, right out of the box — average_moisture
+    # is the worked example in functions.py, not one of your five tasks.
+    # It uses hand-built sample data, not load_harvest_data, on purpose:
+    # you haven't implemented load_harvest_data yet at this point, and this
+    # test should pass before you've written a single line of your own.
+    # If this fails, something's wrong with your environment/setup, not
+    # your code — check the Troubleshooting section in README.md.
+    sample_records = [{"moisture_pct": 40.0}, {"moisture_pct": 44.0}, {"moisture_pct": 42.0}]
+    assert average_moisture(sample_records) == pytest.approx(42.0)
 
 
 def test_load_harvest_data_returns_correct_count():

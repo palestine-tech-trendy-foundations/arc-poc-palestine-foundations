@@ -34,6 +34,65 @@ The lab has you implement `load_harvest_data` first, even though it's arguably t
 
 ---
 
+## Worked Example — Read This Before You Open `functions.py`
+
+`starter/functions.py` includes one function that's already fully written for you: `average_moisture`. It's not one of your five tasks — it exists purely so you have a working, correct example of the pattern to copy before you write your own.
+
+Here's the same code, explained line by line:
+
+```python
+def average_moisture(records):
+    total_moisture = 0.0                          # start a running total at zero
+
+    for plot in records:                           # go through each plot's dict, one at a time
+        total_moisture = total_moisture + plot["moisture_pct"]   # add this plot's value in
+
+    average = total_moisture / len(records)         # total divided by count = average
+    return average                                   # send the answer back
+```
+
+Every one of your five tasks follows a version of this same shape: **take the input you're given, loop over it if it's a list, pull out the field(s) you need, do one calculation, return the answer.** `yield_per_dunam` doesn't even need a loop — it's one division. `summarize_season` loops multiple times for different pieces of the summary. But the underlying pattern — access a value, calculate, return — is the same one shown above.
+
+Open `starter/functions.py` now and try running `average_moisture` yourself using the command in the comment right below it, before writing anything. Seeing it actually work is worth more than reading about it.
+
+## Worked Example — Reading a CSV File
+
+`load_harvest_data` is your first task, and it's also the one with the least obvious starting point if you haven't read a CSV file in Python before. Here's a small, separate example — reading a *different*, simpler file than the one you'll actually work with — that shows the exact pattern:
+
+Imagine a file `pets.csv` containing:
+```
+name,age
+Simba,3
+Luna,5
+```
+
+This code reads it into a list of dictionaries:
+
+```python
+import csv
+
+with open("pets.csv", newline="") as f:
+    reader = csv.DictReader(f)
+    pets = []
+    for row in reader:
+        pets.append({
+            "name": row["name"],
+            "age": float(row["age"]),   # convert from string to a number
+        })
+
+print(pets)
+# [{'name': 'Simba', 'age': 3.0}, {'name': 'Luna', 'age': 5.0}]
+```
+
+Three things to notice:
+1. `csv.DictReader(f)` turns each row into a dictionary automatically, using the header row (`name,age`) as the keys.
+2. `row["age"]` comes out as the *string* `"3"`, not the number `3` — every value from a CSV is a string by default, no matter what it looks like. Wrapping it in `float(...)` converts it to an actual number you can do math with.
+3. We build a brand-new list (`pets`) by appending one dictionary per row, rather than trying to modify the CSV data in place.
+
+`load_harvest_data` needs the same three ideas — `csv.DictReader`, converting the numeric columns with `float(...)`, and building a list of dictionaries — just with the harvest data's actual column names instead of `name` and `age`.
+
+---
+
 ## Check Your Understanding
 
 Think through these before opening `README.md`. Nothing here is submitted or graded.

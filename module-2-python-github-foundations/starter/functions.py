@@ -18,6 +18,55 @@ Run your own tests locally before pushing:
 import csv
 
 
+# ============================================================
+# WORKED EXAMPLE — already implemented. Read this before you
+# touch anything below it. It's not one of your five tasks —
+# it's here to show you the pattern you'll use for all of them.
+# ============================================================
+
+def average_moisture(records):
+    """
+    WORKED EXAMPLE (already done for you).
+
+    Given `records` (a list of dicts shaped like the output of
+    load_harvest_data), return the average moisture_pct across all plots,
+    as a float.
+    """
+    # Step 1: `records` is a list of dictionaries — one dict per plot.
+    # We need a running total to add each plot's moisture_pct into.
+    total_moisture = 0.0
+
+    # Step 2: loop over every plot's dictionary, one at a time.
+    for plot in records:
+        # Step 3: pull out just the "moisture_pct" value from this plot's
+        # dict, and add it to our running total.
+        total_moisture = total_moisture + plot["moisture_pct"]
+
+    # Step 4: "average" means total divided by count. len(records) gives
+    # us how many plots (dictionaries) are in the list.
+    average = total_moisture / len(records)
+
+    # Step 5: return the single number we calculated.
+    return average
+
+
+# Try it yourself before moving on: open a terminal in this folder and run
+#   python3 -c "from functions import average_moisture; print(average_moisture([{'moisture_pct': 40.0}, {'moisture_pct': 44.0}, {'moisture_pct': 42.0}]))"
+# You should see 42.0. Notice this works right now, before you've written
+# any of the five functions below — average_moisture is already complete,
+# and this call builds its own tiny sample data by hand instead of relying
+# on load_harvest_data (which you haven't written yet). That's the exact
+# pattern you'll repeat for every task below: take a list of dicts, loop
+# over it, pull out one field, calculate, return.
+
+
+# ============================================================
+# YOUR TASKS — implement these five. Each docstring tells you
+# exactly what's expected. Use the same pattern as the worked
+# example above: loop over records, pull out the field you need,
+# do the calculation, return the result.
+# ============================================================
+
 def load_harvest_data(filepath):
     """
     Read the harvest CSV at `filepath` and return a list of dictionaries,
