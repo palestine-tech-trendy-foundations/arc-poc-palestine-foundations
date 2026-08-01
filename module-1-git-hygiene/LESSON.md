@@ -16,7 +16,7 @@ New developers often think of commits as save points — a way to not lose work.
 
 Six months from now, when something breaks, the fastest way to understand what changed is to read the commit history — not to read every line of code from scratch. A commit history made of clear, small, well-labeled changes turns into a searchable explanation of the project's evolution. A commit history made of one giant "fixed stuff" commit turns into nothing useful at all.
 
-This is also why professional teams enforce a **commit message convention**. The one used in this program is [Conventional Commits](https://www.conventionalcommits.org/) — every commit message starts with a type (`feat`, `fix`, `docs`, `chore`, `refactor`, `test`, `style`) followed by a colon and a short description. It looks small, but it means anyone — a teammate, a future you, or an automated tool generating a changelog — can scan a list of commits and immediately understand what category of change each one was, without opening a single file.
+This is also why professional teams enforce a **commit message convention**. The one used in this program is [Conventional Commits](https://www.conventionalcommits.org/) — a free, widely-used open standard — where every commit message starts with a type (`feat`, `fix`, `docs`, `chore`, `refactor`, `test`, `style`) followed by a colon and a short description. It looks small, but it means anyone — a teammate, a future you, or an automated tool generating a changelog — can scan a list of commits and immediately understand what category of change each one was, without opening a single file.
 
 ## Why "Atomic" Commits
 

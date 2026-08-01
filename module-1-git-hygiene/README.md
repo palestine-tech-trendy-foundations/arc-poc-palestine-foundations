@@ -1,4 +1,4 @@
-# Module 1 — Git Hygiene & Discipline
+# Module 1 — Git Hygiene & Discipline 🌿
 
 **Estimated time:** 90 minutes (30 min lesson + 60 min lab)
 **What you need:** Git installed, a GitHub account, a text editor
@@ -148,6 +148,16 @@ There is no penalty for multiple attempts.
 | Atomic commits | No single commit changes an unreasonably large number of files |
 | PR title | Follows the exact naming convention from Step 7 |
 | Content completed | Typo fixed, name/date filled in, reflection is present and substantive |
+
+## Helpful Resources
+
+You shouldn't need these to complete the lab — everything required is in this README and in `LESSON.md`. But if something isn't clicking, or you want to go deeper, these are solid, free, beginner-friendly places to look:
+
+- **[Learn Git Branching](https://learngitbranching.js.org/)** — a free, visual, interactive way to actually see what branches and commits are doing. Great if the concepts in the lesson felt abstract.
+- **[Pro Git book](https://git-scm.com/book/en/v2)** — the free, official Git book. Chapter 2 ("Git Basics") covers everything in this module in more depth.
+- **[Conventional Commits specification](https://www.conventionalcommits.org/)** — the exact standard this module's commit message format is based on.
+- **[GitHub Docs — About pull requests](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)** — the official explanation of what a PR is and why teams use them.
+- **[gitignore.io](https://www.toptal.com/developers/gitignore)** — generates starter `.gitignore` files for any language or tool. Good to know exists for future projects (don't use it to skip Step 4 in this lab — writing it yourself is the point this time).
 
 ## Troubleshooting
 

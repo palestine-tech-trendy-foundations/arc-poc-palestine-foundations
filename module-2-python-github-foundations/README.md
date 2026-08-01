@@ -1,4 +1,4 @@
-# Module 2 — Python & GitHub Foundations
+# Module 2 — Python & GitHub Foundations 🫒
 
 **Estimated time:** 90 minutes (30 min lesson + 60 min lab)
 **What you need:** Python 3.10+, Git, the habits from Module 1
@@ -118,6 +118,16 @@ Same as Module 1: an automated comment appears on your PR within a couple of min
 | Hidden tests | 1–2 additional edge-case tests not visible in your local repo |
 | Git hygiene | Same standard as Module 1 — at least 4 atomic, conventionally-formatted commits on a feature branch |
 | PR title | Follows the exact naming convention from Step 6 |
+
+## Helpful Resources
+
+Everything required is in this README and `LESSON.md`, but these are solid, free places to go deeper if something isn't clicking:
+
+- **[The Python Tutorial (official docs)](https://docs.python.org/3/tutorial/)** — Sections 4 (control flow) and 4.6–4.8 (functions) cover exactly what you need for this lab.
+- **[learnpython.org](https://www.learnpython.org/)** — free, interactive, runs in your browser. The "Functions" and "Dictionaries" lessons are the most directly relevant here.
+- **[csv — official Python docs](https://docs.python.org/3/library/csv.html)** — the standard library module `load_harvest_data` is built on.
+- **[Python Errors and Exceptions (official docs)](https://docs.python.org/3/tutorial/errors.html)** — covers `raise` and `ValueError` in more depth than the lesson does.
+- **[pytest — Get Started](https://docs.pytest.org/en/stable/getting-started.html)** — the official quick-start guide for the testing tool this lab uses.
 
 ## Troubleshooting
 

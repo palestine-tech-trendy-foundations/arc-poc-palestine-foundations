@@ -85,10 +85,17 @@ jobs:
       - name: Build summary
         if: always()
         run: |
-          echo "# Module 2 — Python Foundations Autograder Report" >> "$GITHUB_STEP_SUMMARY"
+          echo "# Module 2 — Python Foundations Autograder Report 🫒" >> "$GITHUB_STEP_SUMMARY"
           echo '```' >> "$GITHUB_STEP_SUMMARY"
           tail -n 40 module-2-python-github-foundations/test_output.txt >> "$GITHUB_STEP_SUMMARY"
           echo '```' >> "$GITHUB_STEP_SUMMARY"
+          if [ "${{ steps.run_tests.outcome }}" = "success" ]; then
+            echo "" >> "$GITHUB_STEP_SUMMARY"
+            echo "**🫒 All checks passed — this cooperative's harvest data is in good hands. Nice work.**" >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "" >> "$GITHUB_STEP_SUMMARY"
+            echo "**Some checks did not pass.** Read the output above, fix the failing function(s), and push again — this re-runs automatically." >> "$GITHUB_STEP_SUMMARY"
+          fi
 
       - name: Post results as PR comment
         if: always()

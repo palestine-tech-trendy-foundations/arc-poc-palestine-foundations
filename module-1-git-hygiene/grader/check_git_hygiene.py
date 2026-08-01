@@ -172,7 +172,7 @@ def main():
         lines.append("")
 
     lines.append("---")
-    lines.append("**All required checks passed — nice work.**" if all_passed
+    lines.append("**🌿 All required checks passed — your Git habits are looking sharp. Nice work.**" if all_passed
                   else "**Some checks did not pass.** Read the notes above, fix them on your branch, and push again — this re-runs automatically.")
 
     report = "\n".join(lines)
