@@ -1,7 +1,9 @@
 # Module 1 — Git Hygiene & Discipline
 
-**Estimated time:** 90 minutes
+**Estimated time:** 90 minutes (30 min lesson + 60 min lab)
 **What you need:** Git installed, a GitHub account, a text editor
+
+> **Before you start:** read [`LESSON.md`](./LESSON.md) in this folder first. It covers the concepts behind every step below — what Git is actually tracking, why commit discipline matters, and how `.gitignore` really works. This lab will make a lot more sense with that context, and a couple of steps below assume you've read it.
 
 ## Why this module exists
 

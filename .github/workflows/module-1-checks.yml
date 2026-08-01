@@ -1,0 +1,55 @@
+name: Module 1 — Git Hygiene Checks
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - "module-1-git-hygiene/**"
+      - ".gitignore"
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  git-hygiene-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout full history
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # full history needed to inspect all commits on the branch
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run Git hygiene autograder
+        id: grade
+        env:
+          BASE_BRANCH: origin/${{ github.event.pull_request.base.ref }}
+        run: |
+          python module-1-git-hygiene/grader/check_git_hygiene.py
+
+      - name: Post results as PR comment
+        if: always()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const summaryPath = process.env.GITHUB_STEP_SUMMARY;
+            let body = "Automated Module 1 check ran — see the Actions run summary for the full report.";
+            try {
+              // Re-run the grader in comment mode is unnecessary; step summary already has it.
+              // We instead read back the last summary file this job wrote to.
+              body = fs.readFileSync(summaryPath, 'utf8');
+            } catch (e) {
+              // Fall back to the default message above.
+            }
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: body
+            });

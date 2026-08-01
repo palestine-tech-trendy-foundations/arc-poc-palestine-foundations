@@ -1,0 +1,112 @@
+name: Module 2 — Python Foundations Checks
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - "module-2-python-github-foundations/**"
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  python-foundations-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install pytest
+        run: pip install pytest==8.3.3
+
+      # Hidden tests are injected here, at grading time, rather than shipped
+      # in the learner's repo. This keeps them genuinely hidden from anyone
+      # reading their own fork, while still running from source control here
+      # (versioned, reviewable, and testable by us) rather than a hardcoded
+      # blob buried in this workflow file.
+      #
+      # Production note: for the full ARC build, hidden tests for every
+      # module should live in a single private grading repo pulled in via a
+      # short-lived deploy key, rather than embedded per-workflow like this
+      # POC does. That scales better across 20+ weeks of modules and keeps
+      # the hidden-test source out of every learner-facing workflow file
+      # entirely. This inline version is a reasonable simplification for a
+      # two-module POC.
+      - name: Inject hidden tests
+        run: |
+          cat > module-2-python-github-foundations/tests/test_hidden.py << 'HIDDEN_EOF'
+          import os
+          import sys
+
+          sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "starter"))
+
+          import pytest
+          from functions import (
+              load_harvest_data,
+              yield_per_dunam,
+              flag_underperforming_plots,
+              summarize_season,
+          )
+
+          DATA_PATH = os.path.join(os.path.dirname(__file__), "..", "data", "harvest_data.csv")
+
+
+          def test_hidden_flag_boundary_is_strict():
+              records = [
+                  {"plot_id": "X1", "region": "Test", "dunams": 2.0, "kg_harvested": 200.0, "moisture_pct": 40.0},
+              ]
+              flagged = flag_underperforming_plots(records, threshold_kg_per_dunam=100)
+              assert flagged == []
+
+
+          def test_hidden_summarize_on_subset_not_hardcoded():
+              records = load_harvest_data(DATA_PATH)
+              subset = records[:3]
+              summary = summarize_season(subset)
+              assert summary["total_kg"] == pytest.approx(950 + 410 + 1680)
+              assert summary["total_dunams"] == pytest.approx(5 + 3 + 8)
+              assert summary["best_plot_id"] == "P03"
+          HIDDEN_EOF
+
+      - name: Run all tests (visible + hidden)
+        id: run_tests
+        continue-on-error: true
+        run: |
+          cd module-2-python-github-foundations
+          python -m pytest tests/ -v > test_output.txt 2>&1
+          cat test_output.txt
+
+      - name: Build summary
+        if: always()
+        run: |
+          echo "# Module 2 — Python Foundations Autograder Report" >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
+          tail -n 40 module-2-python-github-foundations/test_output.txt >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Post results as PR comment
+        if: always()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            let body = "Automated Module 2 check ran — see the Actions run summary for the full report.";
+            try {
+              body = fs.readFileSync(process.env.GITHUB_STEP_SUMMARY, 'utf8');
+            } catch (e) {}
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: body
+            });
+
+      - name: Fail job if tests failed
+        if: steps.run_tests.outcome == 'failure'
+        run: exit 1
