@@ -9,7 +9,7 @@
 
 Every professional software team relies on Git to work together without stepping on each other's work. But Git only works well when everyone follows a few shared habits — clear commit messages, small focused commits, branches instead of working directly on `main`, and never accidentally committing secrets or junk files.
 
-This module isn't about learning Git *commands* — you likely already know `git add`, `git commit`, `git push`. It's about learning Git *discipline*: the habits that separate a messy repo from a professional one. These habits are exactly what a hiring manager or a teammate checks first when they look at your GitHub history.
+This module assumes no prior Git experience. Every command you need is spelled out below, exactly as you should type it. What this module is really teaching isn't the commands themselves — it's Git *discipline*: the habits that separate a messy repo from a professional one. These habits are exactly what a hiring manager or a teammate checks first when they look at your GitHub history.
 
 By the end of this module, you'll have gone through one full, realistic cycle of: branch → small disciplined commits → a clean `.gitignore` → a Pull Request. This is the same cycle you'll repeat in every module from here on.
 
@@ -24,7 +24,9 @@ By the end of this module you will be able to:
 
 ## Before you start
 
-Make sure you've already cloned your fork and you're inside the repo folder in your terminal. Confirm you're on the `main` branch and up to date:
+Make sure you've already completed the **"Getting Set Up"** steps in the root [`README.md`](../README.md) — you should be inside the `palestine-tech-trendy-foundations` folder, in a terminal, with your fork cloned. If you haven't done that yet, go do it now before continuing.
+
+Once you're set up, confirm you're on the `main` branch and up to date:
 
 ```bash
 git status

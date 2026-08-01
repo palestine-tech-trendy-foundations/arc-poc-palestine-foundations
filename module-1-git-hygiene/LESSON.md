@@ -10,6 +10,14 @@ Git manages three areas at once: your **working directory** (the files you see a
 
 This matters for the lab: when you commit "only this change" in Step 2, you're using `git add` on a single file deliberately, not because Git only lets you commit one file at a time.
 
+## What a Branch Actually Is
+
+A repository's history isn't just one straight line of commits — it can split into multiple parallel lines, called **branches**. Think of `main` as the "official," always-working version of the project. A branch is a separate line where you can make changes — even messy, half-finished, experimental changes — without touching `main` at all until you're ready.
+
+This solves a real problem: if you worked directly on `main`, every commit you make (finished or not) immediately becomes part of the official history everyone sees. Working on a branch instead means you can commit as many times as you want, in whatever state your code is in, and `main` stays untouched until your work is reviewed and deliberately merged in.
+
+Concretely: `git checkout -b some-branch-name` creates a new branch and switches you onto it. From that point, every commit you make goes onto that branch, not onto `main` — until you open a Pull Request (explained below) to bring your changes back into `main`.
+
 ## Why Commit History Is a Communication Tool, Not Just a Backup
 
 New developers often think of commits as save points — a way to not lose work. That's true, but it undersells what commit history is actually for on a team: **it's the record of *why* the code looks the way it does.**

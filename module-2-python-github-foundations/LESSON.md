@@ -2,6 +2,22 @@
 
 Read this before starting the lab in `README.md`. This isn't graded — it's the thinking you need before the exercise makes sense.
 
+## First — A Quick Check
+
+This lesson explains *why* this module's functions are built the way they are. It assumes you already know basic Python syntax: how to write a `for` loop, how to define a function with `def`, and how to read and write to a dictionary (`some_dict["key"]`).
+
+**If any of those three are unfamiliar, stop here first** — don't struggle through this lesson without them, it'll be frustrating for no reason. Go to **[learnpython.org](https://www.learnpython.org/)** (free, interactive, runs in your browser, no account needed) and complete these lessons first:
+
+- Variables and Types
+- Lists
+- Loops
+- Functions
+- Dictionaries
+
+That's roughly 45–60 minutes for someone with zero prior programming experience. Once you can comfortably write a small function that uses a loop and returns a value, come back here.
+
+**If those three already feel familiar, keep going below** — you don't need to do anything else first.
+
 ## What a Function Actually Buys You
 
 A function is a named, reusable piece of logic that takes specific inputs and produces a specific output. That sounds obvious, but the real value isn't "reusability" in the abstract — it's that a well-written function becomes a unit you can trust *without re-reading its internals every time you use it*.

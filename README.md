@@ -2,25 +2,24 @@
 
 Two self-guided, fully autograded modules for complete beginners, built for the **Palestine Tech Trendy** program under the **ARC** curriculum (Istidama Consulting, DELTA v1.1 methodology).
 
-No instructor review is required to complete these modules. Everything is graded automatically by GitHub Actions the moment you push your work.
+No instructor review is required to complete these modules. Everything is graded automatically by GitHub Actions the moment you push your work. This track assumes **no prior experience** with Git, GitHub, the command line, or programming — every step is spelled out.
 
 ---
 
 ## Table of Contents
 
 1. [Before You Start — Requirements](#before-you-start)
-2. [How This Repo Works](#how-this-repo-works)
-3. [Your Day-by-Day Plan](#your-day-by-day-plan)
-4. [Daily Workflow — What You'll Actually Do Each Day](#daily-workflow)
-5. [If You Fall Behind](#if-you-fall-behind)
-6. [Completion Checklist](#completion-checklist)
-7. [Getting Help](#getting-help)
+2. [Getting Set Up — Do This Once](#getting-set-up)
+3. [How This Repo Works](#how-this-repo-works)
+4. [The Modules](#the-modules)
+5. [Completion Checklist](#completion-checklist)
+6. [Getting Help](#getting-help)
 
 ---
 
 ## Before You Start — Requirements {#before-you-start}
 
-Confirm you have all of these **before Day 1** — none of them are part of the graded work, but starting Day 1 without them will cost you time that should go toward learning instead.
+Confirm you have all of these before you begin — none of them are part of the graded work, but starting without them will cost you time that should go toward learning instead.
 
 | Requirement | How to check | Where to get it |
 |---|---|---|
@@ -32,65 +31,83 @@ Confirm you have all of these **before Day 1** — none of them are part of the 
 
 Everything above is free. No paid tool or subscription is required anywhere in this track.
 
+**New to the terms "terminal" or "command line"?** It's a text-based way to give your computer instructions, instead of clicking icons. Every operating system has one built in — you don't need to install anything extra to get one:
+
+| Your computer | How to open a terminal |
+|---|---|
+| **Windows** | Press the Windows key, type `Git Bash` (installed automatically with Git), press Enter |
+| **macOS** | Press `Cmd + Space`, type `Terminal`, press Enter |
+| **Linux** | Press `Ctrl + Alt + T`, or search for "Terminal" in your applications menu |
+
+You'll type commands into this window and press Enter to run them. Every command in this track is written out exactly — you never need to guess or modify what's shown.
+
+---
+
+## Getting Set Up — Do This Once {#getting-set-up}
+
+Do this before Module 1. It only needs to happen one time for this whole track.
+
+**Step 1 — Get your own copy of this repo.** When you enrolled on Moodle, a background process automatically created a personal copy (called a "fork") of this repository in your own GitHub account. You don't need to click anything to make this happen — it's already done by the time you read this.
+
+**Step 2 — Find your fork's address.** Log into GitHub, go to "Your repositories," and open the one named `palestine-tech-trendy-foundations`. Click the green **"Code"** button, and copy the URL shown under **HTTPS** — it will look like:
+
+```
+https://github.com/<your-github-username>/palestine-tech-trendy-foundations.git
+```
+
+**Step 3 — Open a terminal** (see the table above if you're not sure how).
+
+**Step 4 — Download ("clone") your fork to your computer.** In the terminal, type the command below, but replace the URL with the one you copied in Step 2, then press Enter:
+
+```bash
+git clone https://github.com/<your-github-username>/palestine-tech-trendy-foundations.git
+```
+
+You'll see some text scroll by as Git downloads the files. When it's done, you'll be back at a normal prompt.
+
+**Step 5 — Move into the folder you just downloaded:**
+
+```bash
+cd palestine-tech-trendy-foundations
+```
+
+**Step 6 — Confirm it worked.** Type this and press Enter:
+
+```bash
+git status
+```
+
+You should see something like `On branch main` and `nothing to commit, working tree clean`. If you see that, you're fully set up.
+
+From here on, every command in Module 1 and Module 2's instructions assumes you're inside this folder, in a terminal, exactly like this.
+
 ---
 
 ## How This Repo Works {#how-this-repo-works}
 
-1. **You get your own copy of this repo automatically.** When you enroll on Moodle, a background process forks this repository into your own GitHub account — you don't trigger this yourself.
-2. **You clone your fork** to your computer and work locally, following each module's instructions.
-3. **You submit by opening a Pull Request.** When a module's instructions tell you to, you push your branch and open a PR from your branch into `main` — inside your own fork, not the original shared repo.
+1. **You've already forked and cloned this repo** (see Getting Set Up above) — you're working on your own personal copy, not the shared original.
+2. **You work through each module locally**, following its instructions inside this folder.
+3. **You submit by opening a Pull Request.** When a module's instructions tell you to, you push your work and open a PR from your branch into `main` — inside your own fork, not the original shared repo. (Module 1's lesson explains exactly what a "branch" and a "Pull Request" are, in case those are new terms.)
 4. **An automated check grades your PR within minutes.** A bot comments directly on your Pull Request with a pass/fail breakdown of every requirement. There is no waiting for a human reviewer.
 5. **You can fix and resubmit as many times as you need.** Push again to the same branch and the check re-runs automatically. There's no penalty for multiple attempts — the goal is that you leave with correct, working code, not that you get it right the first time.
+
+---
+
+## The Modules {#the-modules}
 
 Each module folder contains two documents, always in this order:
 
 - **`LESSON.md`** — read this first. It explains the concepts behind the module: not just *what* to type, but *why* it works that way. Ends with a short "Check Your Understanding" section (not graded — just for you).
 - **`README.md`** — the hands-on lab. Step-by-step instructions, starter files to complete, and exactly what's being graded.
 
----
+| Module | Lesson | Lab |
+|---|---|---|
+| Module 1 — Git Hygiene & Discipline | [LESSON.md](./module-1-git-hygiene/LESSON.md) | [README.md](./module-1-git-hygiene/README.md) |
+| Module 2 — Python & GitHub Foundations | [LESSON.md](./module-2-python-github-foundations/LESSON.md) | [README.md](./module-2-python-github-foundations/README.md) |
 
-## Your Day-by-Day Plan {#your-day-by-day-plan}
+Work through Module 1 completely (lesson, then lab, then a passing Pull Request) before starting Module 2 — Module 2 assumes the Git workflow from Module 1 is already comfortable for you.
 
-This track is designed to be completed over **4 days**, at roughly 45–60 minutes per day. It's built this way on purpose: rushing both modules in one sitting tends to produce exactly the kind of mistakes the autograder is designed to catch, and a Pull Request built in a rush is rarely one you'd be proud to show later.
-
-Day 1 below means "the day you start" — not a fixed calendar date. If your cohort has a fixed start date, your coordinator will tell you what calendar date Day 1 corresponds to.
-
-| Day | Focus | What's due by end of day | Time needed |
-|---|---|---|---|
-| **Day 01** | Module 1 — Lesson | Read `module-1-git-hygiene/LESSON.md`. Answer the "Check Your Understanding" questions for yourself (not submitted). | ~30 min |
-| **Day 02** | Module 1 — Lab | Complete all 7 steps in `module-1-git-hygiene/README.md`. **Pull Request opened**, titled `Module 1: Git Hygiene — <Your Name>`, with all automated checks passing. | ~60 min |
-| **Day 03** | Module 2 — Lesson | Read `module-2-python-github-foundations/LESSON.md`. Answer the "Check Your Understanding" questions for yourself (not submitted). | ~30 min |
-| **Day 04** | Module 2 — Lab | Complete all 7 steps in `module-2-python-github-foundations/README.md`. **Pull Request opened**, titled `Module 2: Python Foundations — <Your Name>`, with all automated checks passing (visible + hidden tests). | ~60 min |
-
-**Hard rule:** don't start a Lab day before finishing that module's Lesson day. The lab instructions assume you've already read the lesson, and skipping it is the single most common reason students get stuck on something the lesson already explained.
-
----
-
-## Daily Workflow — What You'll Actually Do Each Day {#daily-workflow}
-
-**Lesson days (Day 01, Day 03):**
-1. Open the module's `LESSON.md` in your text editor or directly on GitHub
-2. Read it fully, once, without trying to code anything yet
-3. Go through the "Check Your Understanding" questions at the end — if you can't answer one confidently, re-read that section before moving on
-4. Stop there. Don't start the lab the same day unless you have extra time — the lesson needs to sit for a bit before the lab clicks.
-
-**Lab days (Day 02, Day 04):**
-1. Open the module's `README.md` and follow it top to bottom — don't skip steps or jump ahead
-2. Commit as you go, exactly as each step instructs (small, separate, clearly-labeled commits — not one commit at the end)
-3. Push and open your Pull Request when the instructions tell you to
-4. Wait a couple of minutes for the automated comment to appear on your PR
-5. If anything failed: read the comment carefully, fix it on the same branch, push again
-6. Repeat step 4–5 until everything passes
-
----
-
-## If You Fall Behind {#if-you-fall-behind}
-
-This plan assumes a normal pace for someone new to these tools — it is not a hard deadline enforced by the autograder. The grading checks don't care what day it is; they only check whether your work is correct.
-
-If Day 1 takes you two days instead of one, that's fine — keep going in order, just shifted. What matters is finishing each Lesson before starting its Lab, and finishing Module 1 before starting Module 2. There's no benefit to rushing past a step you don't understand yet, and no penalty in this repo for taking the time you actually need.
-
-If your program has a hard external deadline (e.g., tied to a cohort schedule in Moodle or TalentLMS), that deadline will be communicated to you separately — it is not enforced by anything in this repository.
+Within each module: **read the lesson in full before opening the lab.** The lab instructions assume you already have that context, and skipping the lesson is the single most common reason students get stuck on something it already explained.
 
 ---
 
@@ -98,6 +115,7 @@ If your program has a hard external deadline (e.g., tied to a cohort schedule in
 
 You're done with this track when all of the following are true:
 
+- [ ] Completed the "Getting Set Up" steps above
 - [ ] Read `module-1-git-hygiene/LESSON.md`
 - [ ] Opened a Pull Request for Module 1, titled correctly, with all automated checks passing
 - [ ] Read `module-2-python-github-foundations/LESSON.md`

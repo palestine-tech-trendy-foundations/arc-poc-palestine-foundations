@@ -1,9 +1,9 @@
 # Module 2 — Python & GitHub Foundations 🫒
 
-**Estimated time:** 90 minutes (30 min lesson + 60 min lab)
+**Estimated time:** 90 minutes (30 min lesson + 60 min lab) — add 45–60 min first if you're completely new to Python; see the self-check at the top of `LESSON.md`
 **What you need:** Python 3.10+, Git, the habits from Module 1
 
-> **Before you start:** read [`LESSON.md`](./LESSON.md) in this folder first. It covers why functions are structured this way, why input validation matters, and a common bug you're likely to hit when reading the CSV — understanding these first will save you real debugging time below.
+> **Before you start:** read [`LESSON.md`](./LESSON.md) in this folder first — it opens with a quick self-check to confirm you're ready for this module, then covers why functions are structured this way, why input validation matters, and a common bug you're likely to hit when reading the CSV.
 
 ## Scenario
 
