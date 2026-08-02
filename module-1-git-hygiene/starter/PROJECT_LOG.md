@@ -1,11 +1,11 @@
-# Project Log — Module 1
+# Project Log: Module 1
 
 Learner: <YOUR NAME HERE>
 Date started: <YYYY-MM-DD>
 
 ## About this log
 
-This log exists so that every commit you make in Module 1 has a real, meaningful change behind it — just like commits on a real project. Every edit you make to this file should be committed on its own, following the instructions in the module README.
+This log exists so that every commit you make in Module 1 has a real, meaningful change behind it, just like commits on a real project. Every edit you make to this file should be committed on its own, following the instructions in the module README.
 
 ## Notes
 

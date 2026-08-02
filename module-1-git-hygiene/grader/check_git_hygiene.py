@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """
-Module 1 autograder — Git Hygiene & Discipline.
+Module 1 autograder, Git Hygiene & Discipline.
 
 Runs inside GitHub Actions on every push to a Pull Request targeting `main`.
 Uses only the Python standard library and the `git` CLI (already present on
-GitHub-hosted runners) — no extra dependencies, no paid services.
+GitHub-hosted runners), no extra dependencies, no paid services.
 
 Exit code 0 = all required checks passed.
 Exit code 1 = at least one required check failed.
@@ -41,7 +41,7 @@ def run(cmd):
     """Run a shell command and return stdout, raising on failure."""
     result = subprocess.run(cmd, shell=True, capture_output=True, text=True)
     if result.returncode != 0 and "no upstream" not in result.stderr.lower():
-        # Don't crash the whole grader on a single git quirk — surface it instead.
+        # Don't crash the whole grader on a single git quirk: surface it instead.
         pass
     return result.stdout.strip()
 
@@ -138,9 +138,9 @@ def check_pr_title():
     title = event.get("pull_request", {}).get("title", "")
     if not title:
         return None, "Skipped (no PR title found in event payload)."
-    pattern = re.compile(r"^Module 1: Git Hygiene — .+")
+    pattern = re.compile(r"^Module 1: Git Hygiene, .+")
     if not pattern.match(title):
-        return False, f"PR title \"{title}\" does not match required format: \"Module 1: Git Hygiene — <Your Name>\""
+        return False, f"PR title \"{title}\" does not match required format: \"Module 1: Git Hygiene, <Your Name>\""
     return True, "PR title follows the required naming convention."
 
 
@@ -157,7 +157,7 @@ def main():
         ("PR title convention", check_pr_title()),
     ]
 
-    lines = ["# Module 1 — Git Hygiene Autograder Report", ""]
+    lines = ["# Module 1: Git Hygiene Autograder Report", ""]
     all_passed = True
     for name, (passed, message) in checks:
         if passed is None:
@@ -172,8 +172,8 @@ def main():
         lines.append("")
 
     lines.append("---")
-    lines.append("**🌿 All required checks passed — your Git habits are looking sharp. Nice work.**" if all_passed
-                  else "**Some checks did not pass.** Read the notes above, fix them on your branch, and push again — this re-runs automatically.")
+    lines.append("**🌿 All required checks passed, your Git habits are looking sharp. Nice work.**" if all_passed
+                  else "**Some checks did not pass.** Read the notes above, fix them on your branch, and push again, this re-runs automatically.")
 
     report = "\n".join(lines)
     print(report)

@@ -1,12 +1,12 @@
 """
-Module 2 — Python & GitHub Foundations
+Module 2: Python & GitHub Foundations
 Scenario: Olive Harvest Analysis
 
 You're helping a small olive-growing cooperative in Palestine analyze this
 season's harvest data across several plots. Implement the four functions
 below. Each one has a docstring explaining exactly what it must do.
 
-Do not import any external libraries — everything here is solvable with
+Do not import any external libraries, everything here is solvable with
 plain Python (loops, conditionals, dictionaries, basic arithmetic). This
 mirrors real early-career work: most data problems don't need a heavy
 library, they need clear logic.
@@ -19,8 +19,8 @@ import csv
 
 
 # ============================================================
-# WORKED EXAMPLE — already implemented. Read this before you
-# touch anything below it. It's not one of your five tasks —
+# WORKED EXAMPLE: already implemented. Read this before you
+# touch anything below it. It's not one of your five tasks: 
 # it's here to show you the pattern you'll use for all of them.
 # ============================================================
 
@@ -32,7 +32,7 @@ def average_moisture(records):
     load_harvest_data), return the average moisture_pct across all plots,
     as a float.
     """
-    # Step 1: `records` is a list of dictionaries — one dict per plot.
+    # Step 1: `records` is a list of dictionaries: one dict per plot.
     # We need a running total to add each plot's moisture_pct into.
     total_moisture = 0.0
 
@@ -53,7 +53,7 @@ def average_moisture(records):
 # Try it yourself before moving on: open a terminal in this folder and run
 #   python3 -c "from functions import average_moisture; print(average_moisture([{'moisture_pct': 40.0}, {'moisture_pct': 44.0}, {'moisture_pct': 42.0}]))"
 # You should see 42.0. Notice this works right now, before you've written
-# any of the five functions below — average_moisture is already complete,
+# any of the five functions below: average_moisture is already complete,
 # and this call builds its own tiny sample data by hand instead of relying
 # on load_harvest_data (which you haven't written yet). That's the exact
 # pattern you'll repeat for every task below: take a list of dicts, loop
@@ -61,7 +61,7 @@ def average_moisture(records):
 
 
 # ============================================================
-# YOUR TASKS — implement these five. Each docstring tells you
+# YOUR TASKS: implement these five. Each docstring tells you
 # exactly what's expected. Use the same pattern as the worked
 # example above: loop over records, pull out the field you need,
 # do the calculation, return the result.
@@ -80,7 +80,7 @@ def load_harvest_data(filepath):
     The CSV columns are: plot_id, region, dunams, kg_harvested, moisture_pct
 
     Hint: use csv.DictReader, then convert the numeric fields from strings
-    to floats — CSV values are read as strings by default.
+    to floats, CSV values are read as strings by default.
     """
     # TODO: implement this function
     raise NotImplementedError
@@ -100,7 +100,7 @@ def yield_per_dunam(kg_harvested, dunams):
 def estimate_oil_liters(kg_harvested, extraction_rate=0.18):
     """
     Estimate the liters of olive oil produced from `kg_harvested` kilograms
-    of olives, given an `extraction_rate` (default 0.18, i.e. 18% — a
+    of olives, given an `extraction_rate` (default 0.18, i.e. 18%, a
     realistic average extraction rate).
 
     Formula: kg_harvested * extraction_rate
@@ -118,7 +118,7 @@ def flag_underperforming_plots(records, threshold_kg_per_dunam):
     whose yield-per-dunam is strictly below `threshold_kg_per_dunam`.
 
     The returned list should preserve the original order of `records`.
-    Use your `yield_per_dunam` function inside this one — don't
+    Use your `yield_per_dunam` function inside this one, don't
     recalculate the formula again.
     """
     # TODO: implement this function
@@ -138,7 +138,7 @@ def summarize_season(records):
             "worst_plot_id": str,          # plot_id with the lowest yield per dunam
         }
 
-    Raise a ValueError if `records` is empty — there's nothing to summarize.
+    Raise a ValueError if `records` is empty, there's nothing to summarize.
     """
     # TODO: implement this function
     raise NotImplementedError
